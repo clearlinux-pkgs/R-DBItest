@@ -4,26 +4,30 @@
 #
 Name     : R-DBItest
 Version  : 1.5.2
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Summary  : Testing 'DBI' Back Ends
 Group    : Development/Tools
 License  : LGPL-2.0+
 Requires: R-DBI
+Requires: R-assertthat
 Requires: R-blob
 Requires: R-desc
 Requires: R-hms
+Requires: R-rprojroot
 Requires: R-withr
 BuildRequires : R-DBI
+BuildRequires : R-assertthat
 BuildRequires : R-blob
 BuildRequires : R-desc
 BuildRequires : R-hms
+BuildRequires : R-rprojroot
 BuildRequires : R-withr
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
-to the interface.
+# DBItest [![Travis-CI Build Status](https://travis-ci.org/rstats-db/DBItest.svg?branch=master)](https://travis-ci.org/rstats-db/DBItest) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/rstats-db/DBItest?branch=master&svg=true)](https://ci.appveyor.com/project/rstats-db/DBItest) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/DBItest)](https://cran.r-project.org/package=DBItest)
 
 %prep
 %setup -q -c -n DBItest
@@ -33,11 +37,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523298344
+export SOURCE_DATE_EPOCH=1552840240
 
 %install
+export SOURCE_DATE_EPOCH=1552840240
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523298344
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,8 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library DBItest|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  DBItest || :
 
 
 %files
@@ -102,3 +105,8 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/DBItest/help/paths.rds
 /usr/lib64/R/library/DBItest/html/00Index.html
 /usr/lib64/R/library/DBItest/html/R.css
+/usr/lib64/R/library/DBItest/tests/testthat.R
+/usr/lib64/R/library/DBItest/tests/testthat/test-consistency.R
+/usr/lib64/R/library/DBItest/tests/testthat/test-context.R
+/usr/lib64/R/library/DBItest/tests/testthat/test-lint.R
+/usr/lib64/R/library/DBItest/tests/testthat/test-tweaks.R
