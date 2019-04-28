@@ -4,13 +4,12 @@
 #
 Name     : R-DBItest
 Version  : 1.5.2
-Release  : 22
+Release  : 23
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Summary  : Testing 'DBI' Back Ends
 Group    : Development/Tools
 License  : LGPL-2.0+
-Requires: R-backports
 BuildRequires : R-DBI
 BuildRequires : R-assertthat
 BuildRequires : R-backports
@@ -32,10 +31,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556470612
+export SOURCE_DATE_EPOCH=1556470930
 
 %install
-export SOURCE_DATE_EPOCH=1556470612
+export SOURCE_DATE_EPOCH=1556470930
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
