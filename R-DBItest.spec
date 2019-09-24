@@ -4,24 +4,30 @@
 #
 Name     : R-DBItest
 Version  : 1.5.2
-Release  : 26
+Release  : 27
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Summary  : Testing 'DBI' Back Ends
 Group    : Development/Tools
 License  : LGPL-2.0+
+Requires: R-DBI
+Requires: R-R6
+Requires: R-blob
+Requires: R-desc
+Requires: R-hms
+Requires: R-testthat
+Requires: R-withr
 BuildRequires : R-DBI
-BuildRequires : R-assertthat
-BuildRequires : R-backports
+BuildRequires : R-R6
 BuildRequires : R-blob
 BuildRequires : R-desc
 BuildRequires : R-hms
-BuildRequires : R-rprojroot
+BuildRequires : R-testthat
 BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-# DBItest [![Travis-CI Build Status](https://travis-ci.org/rstats-db/DBItest.svg?branch=master)](https://travis-ci.org/rstats-db/DBItest) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/rstats-db/DBItest?branch=master&svg=true)](https://ci.appveyor.com/project/rstats-db/DBItest) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/DBItest)](https://cran.r-project.org/package=DBItest)
+to the interface.
 
 %prep
 %setup -q -c -n DBItest
@@ -30,13 +36,13 @@ BuildRequires : buildreq-R
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556470930
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1569285835
 
 %install
-export SOURCE_DATE_EPOCH=1556470930
+export SOURCE_DATE_EPOCH=1569285835
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,7 +71,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
