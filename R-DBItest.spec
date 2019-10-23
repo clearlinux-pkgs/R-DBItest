@@ -4,7 +4,7 @@
 #
 Name     : R-DBItest
 Version  : 1.5.2
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.5-2.tar.gz
 Summary  : Testing 'DBI' Back Ends
@@ -25,9 +25,10 @@ BuildRequires : R-hms
 BuildRequires : R-testthat
 BuildRequires : R-withr
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-to the interface.
+# DBItest [![Travis-CI Build Status](https://travis-ci.org/rstats-db/DBItest.svg?branch=master)](https://travis-ci.org/rstats-db/DBItest) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/rstats-db/DBItest?branch=master&svg=true)](https://ci.appveyor.com/project/rstats-db/DBItest) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/DBItest)](https://cran.r-project.org/package=DBItest)
 
 %prep
 %setup -q -c -n DBItest
@@ -37,10 +38,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1569285835
+export SOURCE_DATE_EPOCH=1571816028
 
 %install
-export SOURCE_DATE_EPOCH=1569285835
+export SOURCE_DATE_EPOCH=1571816028
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
