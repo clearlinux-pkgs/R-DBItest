@@ -4,7 +4,7 @@
 #
 Name     : R-DBItest
 Version  : 1.7.0
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.7.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.7.0.tar.gz
 Summary  : Testing 'DBI' 'Backends'
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : LGPL-2.1
 Requires: R-DBI
 Requires: R-R6
+Requires: R-RSQLite
 Requires: R-blob
 Requires: R-callr
 Requires: R-desc
@@ -22,6 +23,7 @@ Requires: R-testthat
 Requires: R-withr
 BuildRequires : R-DBI
 BuildRequires : R-R6
+BuildRequires : R-RSQLite
 BuildRequires : R-blob
 BuildRequires : R-callr
 BuildRequires : R-desc
@@ -33,32 +35,26 @@ BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-# DBItest
-<!-- badges: start -->
-[![Travis-CI Build Status](https://travis-ci.org/r-dbi/DBItest.svg?branch=master)](https://travis-ci.org/r-dbi/DBItest)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/r-dbi/DBItest?branch=master&svg=true)](https://ci.appveyor.com/project/r-dbi/DBItest)
-[![Codecov test coverage](https://codecov.io/gh/r-dbi/DBItest/branch/master/graph/badge.svg)](https://codecov.io/gh/r-dbi/DBItest?branch=master)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/DBItest)](https://cran.r-project.org/package=DBItest)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3503/badge)](https://bestpractices.coreinfrastructure.org/projects/3503)
-<!-- badges: end -->
+to the interface.
 
 %prep
 %setup -q -c -n DBItest
+cd %{_builddir}/DBItest
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576574416
+export SOURCE_DATE_EPOCH=1589759389
 
 %install
-export SOURCE_DATE_EPOCH=1576574416
+export SOURCE_DATE_EPOCH=1589759389
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
