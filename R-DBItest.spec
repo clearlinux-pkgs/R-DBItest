@@ -4,7 +4,7 @@
 #
 Name     : R-DBItest
 Version  : 1.7.2
-Release  : 47
+Release  : 48
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.7.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.7.2.tar.gz
 Summary  : Testing DBI Backends
@@ -48,10 +48,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639761861
+export SOURCE_DATE_EPOCH=1640996820
 
 %install
-export SOURCE_DATE_EPOCH=1639761861
+export SOURCE_DATE_EPOCH=1640996820
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
