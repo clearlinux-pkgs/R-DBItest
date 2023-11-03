@@ -4,7 +4,7 @@
 #
 Name     : R-DBItest
 Version  : 1.7.3
-Release  : 57
+Release  : 58
 URL      : https://cran.r-project.org/src/contrib/DBItest_1.7.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/DBItest_1.7.3.tar.gz
 Summary  : Testing DBI Backends
